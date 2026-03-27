@@ -7,6 +7,87 @@ Golden Zone-based Mixture of Experts routing. The optimal inhibition ratio I~1/e
 
 > Part of the [TECS-L](https://github.com/need-singularity/TECS-L) project family.
 
+## Discovery Progress — Golden MoE
+
+```
+  Level 1: Proof of Concept  ████████████████████ 100%
+    ✅ Boltzmann router  ✅ Cusp monitor  ✅ 8-expert MoE  ✅ Golden Zone I≈1/e
+    ✅ MNIST 97.7% (+0.6%)  ✅ CIFAR 53.0% (+4.8%)  ✅ Gap 8x at scale
+
+  Level 2: PyTorch + GPU     ████████████████████ 100%
+    ✅ PyTorch backprop version  ✅ CIFAR-10 benchmark  ✅ Multi-scale GPU benchmark
+    ✅ BitNet integration  ✅ LSTM+MoE recurrent variant  ✅ Score evaluation
+
+  Level 3: LLM Integration   ████████░░░░░░░░░░░░ 40%
+    ✅ Golden MoE router in AnimaLM (Mistral 7B)  ✅ Training pipeline (golden-llama)
+    ⬜ Full LLM training (>1B params)  ⬜ PPL < 20 on Wikitext
+    ⬜ Comparison vs Switch Transformer  ⬜ Comparison vs GShard
+
+  Level 4: Production        ██░░░░░░░░░░░░░░░░░░ 10%
+    ⬜ pip installable package  ⬜ HuggingFace integration
+    ⬜ Distributed training support  ⬜ ONNX export
+    ⬜ Benchmark on ImageNet  ⬜ Published paper
+
+  Level 5: Adoption          ░░░░░░░░░░░░░░░░░░░░ 0%
+    ⬜ External users  ⬜ Citations  ⬜ Framework integration (PyTorch/JAX)
+    ⬜ Industry deployment  ⬜ Community contributions
+
+  Overall: Level 2.4 / 5.0  (core proven, LLM integration in progress)
+  Bottleneck: LLM-scale training (needs GPU hours)
+  Theory: 100%  |  Implementation: 70%  |  Adoption: 0%
+```
+
+### Level-Up Priority Roadmap
+
+```
+  Level 2 → 3 (40% → 100%) — Fastest ROI
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    #1 ★★★ Full LLM training (1B+ params)
+       Difficulty: HIGH (GPU hours needed, RTX 5070 or RunPod A100)
+       Effect: Prove MoE advantage at LLM scale
+       → golden-llama training pipeline ready, needs compute
+
+    #2 ★★★ Wikitext PPL < 20
+       Difficulty: HIGH (depends on #1)
+       Effect: Publishable result, competitive with Switch Transformer
+       → Train on full Wikitext-103
+
+    #3 ★★☆ Switch Transformer comparison
+       Difficulty: MEDIUM
+       Effect: Direct comparison with SOTA MoE
+       → Same model size, same data, same compute budget
+
+    #4 ★☆☆ GShard comparison
+       Difficulty: MEDIUM (multi-GPU required)
+       Effect: Distributed MoE comparison
+       → After #3
+
+
+  Level 3 → 4 (10% → 100%) — Package & Publish
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    #5 ★★★ pip install golden-moe
+       Difficulty: MEDIUM
+       Effect: Anyone can use it in 1 line
+       → setup.py + PyPI upload
+
+    #6 ★★☆ HuggingFace integration
+       Difficulty: MEDIUM
+       Effect: transformers.GoldenMoEModel
+       → Custom modeling file + config
+
+    #7 ★★☆ Paper submission
+       Difficulty: HIGH (writing + review)
+       Effect: Academic recognition
+       → Target: ICML or NeurIPS workshop
+
+    #8 ★☆☆ ONNX export
+       Difficulty: LOW
+       Effect: Cross-framework deployment
+       → torch.onnx.export wrapper
+```
+
 ## Results
 
 | Dataset | Golden MoE | Top-K MoE | Gap |
