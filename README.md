@@ -38,6 +38,8 @@ Golden Zone-based Mixture of Experts routing. The optimal inhibition ratio I~1/e
 
 ## Discovery Progress — Golden MoE
 
+> Last updated: 2026-03-28
+
 ```
   Level 1: Proof of Concept  ████████████████████ 100%
     ✅ Boltzmann router  ✅ Cusp monitor  ✅ 8-expert MoE  ✅ Golden Zone I≈1/e
