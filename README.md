@@ -191,6 +191,18 @@ For the full mathematical foundation, see [TECS-L](https://github.com/need-singu
 }
 ```
 
+### Ralph Loop (copy-paste ready, ASCII only)
+
+**MoE Benchmark Expansion**
+```
+/ralph-loop:ralph-loop MoE benchmark agent. Read README results table. Pick next untested dataset or scale. Run golden_moe_torch.py or golden_moe_cifar.py with new configuration. Compare Golden MoE vs TopK baseline. Record accuracy and gap and training time. Update README results if improvement found. Commit and push.
+```
+
+**Inhibition Ratio Search**
+```
+/ralph-loop:ralph-loop Optimal inhibition search. Read golden_moe.py Boltzmann router. Sweep I values from 0.2 to 0.5 in steps of 0.01. Measure accuracy and expert utilization and routing entropy at each point. Find if 1/e is truly optimal or if better exists. Record full sweep data. Commit and push.
+```
+
 ## License
 
 MIT
